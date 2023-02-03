@@ -1,3 +1,4 @@
+import './assets/img/_sprite.svg';
 import './index.html';
-import './index.scss';
+import './styles/index.scss';
 // import './scripts/script';
