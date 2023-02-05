@@ -39,21 +39,7 @@ img {
   transform: scale(0);
 }
 
-.container {
-  max-width: 1312px;
-  padding: 0 48px;
-  margin: 0 auto;
-
-  @media (max-width: 480px) {
-    padding: 0 24px;
-  }
-}
-
 .logo {
   width: 70px;
   height: 40px;
-}
-
-.main-link {
-  @include button;
 }
