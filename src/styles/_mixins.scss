@@ -31,27 +31,22 @@
 }
 
 @mixin form-radio {
+  display: inline-block;
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
   text-transform: uppercase;
-  color: $light;
   background-color: transparent;
-  padding: 24px 16px;
-  border: 1px solid $light;
+  padding: 16px 24px;
+  border: 1px solid $semi;
   border-radius: 36px;
   outline: 1px solid transparent;
+  cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
     color: $hovered;
     border-color: $hovered;
-  }
-
-  &:focus-visible {
-    background-color: $light;
-    color: $dark;
-    outline: 1px solid $semi;
   }
 
   &:disabled {
