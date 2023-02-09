@@ -1,7 +1,12 @@
+import Header from '../../components/Header';
 import React from 'react';
 
 const ChikChikPage = () => {
-  return <div></div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default ChikChikPage;
