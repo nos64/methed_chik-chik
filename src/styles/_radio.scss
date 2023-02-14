@@ -1,5 +1,4 @@
 .radio {
-
   &__input {
     position: absolute;
     appearance: none;
@@ -21,6 +20,7 @@
     background-image: var(--bg-image);
     background-size: 36px;
     background-position: 8px;
+    background-repeat: no-repeat;
   }
 }
 
