@@ -1,0 +1,69 @@
+@import '../../colors.scss';
+
+.about {
+  padding: 62px 0;
+
+  &__title {
+    max-width: 904px;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+  }
+
+  &__description {
+    max-width: 696px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $semi;
+    margin: 0 0 72px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 384px);
+    gap: 24px 32px;
+  }
+
+  &__item {
+    padding: 6px 6px 6px 96px;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 80px;
+
+  }
+
+  &__item_top {
+    background-image: url(../../assets/img/top.svg);
+  }
+
+  &__item_master {
+    background-image: url(../../assets/img/master.svg);
+  }
+
+  &__item_guarantee {
+    background-image: url(../../assets/img/guarantee.svg);
+  }
+
+
+  &__itemTitle {
+    margin: 0 0 8px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 120%;
+    text-transform: uppercase;
+  }
+
+  &__itemDescription {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+  }
+}
+
+
+

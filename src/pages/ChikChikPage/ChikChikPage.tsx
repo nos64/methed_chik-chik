@@ -2,6 +2,7 @@ import Header from '../../components/Header';
 import React from 'react';
 import Hero from '../../components/Hero';
 import Price from '../../components/Price';
+import About from '../../components/About';
 
 const ChikChikPage = () => {
   return (
@@ -10,6 +11,7 @@ const ChikChikPage = () => {
       <main>
         <Hero />
         <Price />
+        <About />
       </main>
     </>
   );
