@@ -4,6 +4,7 @@ import Hero from '../../components/Hero';
 import Price from '../../components/Price';
 import About from '../../components/About';
 import Reserve from '../../components/Reserve';
+import Footer from '../../components/Footer';
 
 const ChikChikPage = () => {
   return (
@@ -15,6 +16,7 @@ const ChikChikPage = () => {
         <About />
         <Reserve />
       </main>
+      <Footer />
     </>
   );
 };
