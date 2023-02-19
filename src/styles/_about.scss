@@ -23,7 +23,7 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 384px);
+    grid-template-columns: repeat(auto-fill, 384px);
     gap: 24px 32px;
   }
 
@@ -32,7 +32,6 @@
     background-position: left;
     background-repeat: no-repeat;
     background-size: 80px;
-
   }
 
   &__item_top {
@@ -61,7 +60,74 @@
     font-size: 16px;
     line-height: 130%;
   }
+
+  @media (max-width: 1024px) {
+    &__description {
+      margin-bottom: 46px;
+    }
+
+    &__list {
+      grid-template-columns: repeat(auto-fill, 290px);
+      column-gap: 29px;
+    }
+
+    &__item {
+      padding: 96px 6px 6px 6px;
+      background-position: top left;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 0;
+
+    &__title {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+
+    &__description {
+      margin-bottom:32px;
+    }
+
+    &__list {
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 45px 32px;
+    }
+
+    &__item {
+      padding: 0px 6px 6px 96px;
+    }
+
+    &__item-title {
+      font-size: 16px;
+    }
+
+    &__item-description {
+      line-height: 130%;
+    }
+  }
+
+  @media (max-width: 560px) {
+    padding: 43px 0;
+
+    &__title {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    &__item-description {
+      font-size: 12px;
+    }
+
+    &__list {
+      grid-template-columns: minmax(272px, 1fr);
+      gap: 24px;
+    }
+
+    &__item {
+      padding-left: 72px;
+      min-height: 64px;
+      background-size: 64px;
+    }
+  }
 }
-
-
-

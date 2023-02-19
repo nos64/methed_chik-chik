@@ -75,16 +75,18 @@ const startSlider = () => {
 
   //для корректной работы слайдера при ресайзе
   window.addEventListener('resize', () => {
-    if (activeSlide + 2 > sliderItems.length && document.documentElement.offsetWidth > 560) {
-      activeSlide = sliderItems.length - 2;
-      sliderItems[activeSlide]?.classList.add('slider__item_active');
-    }
+    setTimeout(() => {
+      if (activeSlide + 2 > sliderItems.length && document.documentElement.offsetWidth > 560) {
+        activeSlide = sliderItems.length - 2;
+        sliderItems[activeSlide]?.classList.add('slider__item_active');
+      }
 
-    position = -sliderItems[0].clientWidth * (activeSlide - 1);
-    if (sliderList && sliderList instanceof HTMLUListElement) {
-      sliderList.style.transform = `translateX(${position}px)`;
-    }
-    checkStartAndLastSlider();
+      position = -sliderItems[0].clientWidth * (activeSlide - 1);
+      if (sliderList && sliderList instanceof HTMLUListElement) {
+        sliderList.style.transform = `translateX(${position}px)`;
+      }
+      checkStartAndLastSlider();
+    }, 100);
   });
 };
 
