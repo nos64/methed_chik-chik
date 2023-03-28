@@ -1,10 +1,4 @@
-const addPreload = (elem: Element | null) => {
-  elem && elem.classList.add('preload');
-};
-
-const removePreload = (elem: Element | null) => {
-  elem && elem.classList.remove('preload');
-};
+import { addPreload, removePreload } from './script';
 
 const startSlider = () => {
   const sliderItems: NodeListOf<HTMLLIElement> = document.querySelectorAll('.slider__item');
@@ -40,7 +34,7 @@ const startSlider = () => {
     }
   };
 
-  checkStartAndLastSlider(); //запск проверки слайдера при загрузке
+  checkStartAndLastSlider(); //запуск проверки слайдера при загрузке
 
   const nextSlide = () => {
     sliderItems[activeSlide]?.classList.remove('slider__item_active');
@@ -90,7 +84,7 @@ const startSlider = () => {
   });
 };
 
-const initSlider = () => {
+export const initSlider = () => {
   const slider = document.querySelector('.slider');
   const sliderContainer: HTMLDivElement | null = document.querySelector('.slider__container');
 
@@ -109,4 +103,4 @@ const initSlider = () => {
   });
 };
 //когда полностью загрузится html без картинкок (DOMContentLoaded) убрать прелоадер
-window.addEventListener('DOMContentLoaded', initSlider);
+// window.addEventListener('DOMContentLoaded', initSlider);
