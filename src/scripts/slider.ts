@@ -103,4 +103,4 @@ export const initSlider = () => {
   });
 };
 //когда полностью загрузится html без картинкок (DOMContentLoaded) убрать прелоадер
-// window.addEventListener('DOMContentLoaded', initSlider);
+window.addEventListener('DOMContentLoaded', initSlider);

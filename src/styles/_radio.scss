@@ -15,6 +15,11 @@
     outline: 1px solid $semi;
   }
 
+  &__input:disabled + &__label{
+    opacity: .3;
+    cursor: no-drop;
+  }
+
   &__label_spec {
     padding-left: 52px;
     background-image: var(--bg-image);

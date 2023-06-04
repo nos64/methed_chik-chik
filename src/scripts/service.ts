@@ -1,14 +1,14 @@
 import { addPreload, removePreload } from './script';
 import { API_URL } from './constants';
 
-interface PriceItem {
+interface IPriceItem {
   id: string;
   name: string;
   price: string;
 }
 
-const renderPrice = (wrapper: HTMLUListElement, data: PriceItem[]) => {
-  data.forEach((item: PriceItem) => {
+const renderPrice = (wrapper: HTMLUListElement, data: IPriceItem[]) => {
+  data.forEach((item: IPriceItem) => {
     const priceItem = document.createElement('li');
     priceItem.classList.add('price__item');
 
@@ -25,8 +25,8 @@ const renderPrice = (wrapper: HTMLUListElement, data: PriceItem[]) => {
   });
 };
 
-const renderService = (wrapper: HTMLFieldSetElement, data: PriceItem[]) => {
-  const labels = data.map((item: PriceItem) => {
+const renderService = (wrapper: HTMLFieldSetElement, data: IPriceItem[]) => {
+  const labels = data.map((item: IPriceItem) => {
     const label = document.createElement('label');
     label.classList.add('radio');
 
@@ -57,9 +57,11 @@ export const initService = () => {
   if (priceList && priceList instanceof HTMLUListElement) {
     priceList.textContent = '';
 
-    fetch(API_URL)
+    addPreload(priceList);
+
+    fetch(`${API_URL}/api`)
       .then((response) => response.json())
-      .then((data: PriceItem[]) => {
+      .then((data: IPriceItem[]) => {
         renderPrice(priceList, data);
         removePreload(priceList);
       });
@@ -69,9 +71,9 @@ export const initService = () => {
     reserveFieldsetService.innerHTML = '<legend class="reserve__legend">Услуга</legend>';
     addPreload(reserveFieldsetService);
 
-    fetch(API_URL)
+    fetch(`${API_URL}/api`)
       .then((response) => response.json())
-      .then((data: PriceItem[]) => {
+      .then((data: IPriceItem[]) => {
         renderService(reserveFieldsetService, data);
         removePreload(reserveFieldsetService);
       });
