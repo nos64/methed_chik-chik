@@ -128,8 +128,15 @@ export const initReserve = () => {
   const reserveForm: HTMLFormElement | null = document.querySelector('.reserve__form');
 
   if (reserveForm && reserveForm instanceof HTMLFormElement) {
-    const { fieldspec, fielddate, fieldmonth, fieldday, fieldtime, btn }: IReserveFormElement =
-      reserveForm;
+    const {
+      fieldservice,
+      fieldspec,
+      fielddate,
+      fieldmonth,
+      fieldday,
+      fieldtime,
+      btn,
+    }: IReserveFormElement = reserveForm;
 
     addDisabled([fieldspec, fielddate, fieldmonth, fieldday, fieldtime, btn]);
 
@@ -210,15 +217,33 @@ export const initReserve = () => {
         removeDisabled([btn]);
       }
     });
+
+    reserveForm.addEventListener('submit', async (e: Event) => {
+      e.preventDefault();
+
+      const formData = new FormData(reserveForm);
+      const json = JSON.stringify(Object.fromEntries(formData));
+
+      const response = await fetch(`${API_URL}/api/order`, {
+        method: 'POST',
+        body: json,
+      });
+
+      const data = await response.json();
+
+      addDisabled([fieldservice, fieldspec, fielddate, fieldmonth, fieldday, fieldtime, btn]);
+
+      const p = document.createElement('p');
+      p.textContent = `
+        Спасибо за бронь #${data.id}!
+        Ждём Вас ${new Intl.DateTimeFormat('ru-RU', {
+          month: 'long',
+          day: 'numeric',
+        }).format(new Date(year, data.month, data.day))},
+        время ${data.time}
+        `;
+
+      reserveForm.append(p);
+    });
   }
 };
-
-// const p = document.createElement('p');
-// p.textContent = `
-//   Спасибо за бронь #${data.id}!
-//   Ждём Вам ${new Intl.DateTimeFormat('ru-RU', {
-//     month: 'long',
-//     day: 'numeric',
-//   }).format(new Date(year, data.month, data.day))},
-//   время ${data.time}
-//   `;
